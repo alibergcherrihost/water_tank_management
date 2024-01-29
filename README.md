@@ -15,7 +15,7 @@ An automated water tank filling system utilizes dual XKC-Y25 NPN non-contact liq
 **Software Configuration:**
 
 1. **Threshold Calibration:** The water flow in the tank may cause fluctuations in sensor readings due to water movement. To improve reliability, we're creating a time-based threshold for the deviation. The acceptable deviation duration needs to be adjusted based on your pump's discharge rate and the size of your tank.
-2. **Calculating Discharge Rate:**
+2. **Calculate Discharge Rate:**
     - If you know your pump's discharge rate, skip this step.
     - Otherwise, follow these steps:
         - **Measure Filling Time:** Use a stopwatch to measure the time it takes to completely fill your water tank from empty.
@@ -26,7 +26,7 @@ An automated water tank filling system utilizes dual XKC-Y25 NPN non-contact liq
         - For example, if it takes 300 seconds (5 mins) to fill your 500-liter tank, the discharge rate (Q) would be:
         - Q = 500 liters/300 seconds ≈ 1.67 liters/seconds
     - This calculation provides an average flow rate in the tank and not the pump and also may not account for variations in pump's efficiency or changes in flow rate over time.
-3. **Determining Deviation Allowances:** Based on the calculated discharge rate and tank size, estimate the time it takes for water to flow from BDC to TDC. Adjust the threshold allowances (currently set to 3 seconds) in the program code to accommodate this estimated time, ensuring reliable detection.
+3. **Determine Deviation Allowance:** Based on the calculated discharge rate and tank size, estimate the time it takes for water to flow from BDC to TDC. Adjust the threshold allowances (currently set to 3 seconds) in the program code to accommodate this estimated time, ensuring reliable detection.
 
    // Determine TDC_State based on deviation duration
    TDC_State = (currentMillis - lastTimeTDCSensorWasHigh <= 3000) && (currentMillis - lastTimeTDCSensorWasLow > 3000);
