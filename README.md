@@ -28,11 +28,4 @@ An automated water tank filling system utilizes dual XKC-Y25 NPN non-contact liq
     - This calculation provides an average flow rate in the tank and not the pump and also may not account for variations in pump's efficiency or changes in flow rate over time.
 3. **Determine Deviation Allowance:** Based on the calculated discharge rate and tank size, estimate the time it takes for water to flow from BDC to TDC. Adjust the threshold allowances (currently set to 3 seconds) in the program code to accommodate this estimated time, ensuring reliable detection.
 
-   // Determine TDC_State based on deviation duration
-   TDC_State = (currentMillis - lastTimeTDCSensorWasHigh <= 3000) && (currentMillis - lastTimeTDCSensorWasLow > 3000);
-   // Determine BDC_State based on deviation duration
-   BDC_State = (currentMillis - lastTimeBDCSensorWasHigh <= 3000) && (currentMillis - lastTimeBDCSensorWasLow > 3000);
-
-
-
    
